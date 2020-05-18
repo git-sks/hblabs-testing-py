@@ -4,17 +4,18 @@
 def is_mel(name, email):
     """Return True if name and email are related to Mel.
 
-    >>> is_mel('Balloonicorn', 'balloonicorn@hackbright.com')
-    False
+    Examples:
+        >>> is_mel('Balloonicorn', 'balloonicorn@hackbright.com')
+        False
 
-    >>> is_mel('Mel Melitpolski', 'sneaky@ubermelon.com')
-    True
+        >>> is_mel('Mel Melitpolski', 'sneaky@ubermelon.com')
+        True
 
-    >>> is_mel('Mel', 'mel@ubermelon.com')
-    True
+        >>> is_mel('Mel', 'mel@ubermelon.com')
+        True
 
-    >>> is_mel('Mel Melitpolski', 'mel@ubermelon.com')
-    True
+        >>> is_mel('Mel Melitpolski', 'mel@ubermelon.com')
+        True
     """
 
     return name == 'Mel Melitpolski' or email == 'mel@ubermelon.com'
@@ -26,6 +27,43 @@ def most_and_least_common_type(treats):
     Return most and least common treat types in tuple of format
     (most, least). If there's a tie, the dessert that appears
     first in alphabetical order should win.
+
+    Examples:
+        case - tie for least common type
+        >>> treats = [{'type': 'drink'},\
+                        {'type': 'drink'},\
+                        {'type': 'dessert'},\
+                        {'type': 'appetizer'}]
+        >>> most_and_least_common_type(treats)
+        ('drink', 'appetizer')
+
+        case - tie for most common type
+        >>> treats = [{'type': 'drink'},\
+                        {'type': 'appetizer'},\
+                        {'type': 'drink'},\
+                        {'type': 'dessert'},\
+                        {'type': 'dessert'}]
+        >>> most_and_least_common_type(treats)
+        ('dessert', 'appetizer')
+
+        case - equal amounts of each type passed in
+        >>> treats = [{'type': 'drink'},\
+                        {'type': 'appetizer'},\
+                        {'type': 'dessert'}]
+        >>> most_and_least_common_type(treats)
+        ('appetizer', 'appetizer')
+
+        case - only one type passed in
+        >>> treats = [{'type': 'drink'},\
+                        {'type': 'drink'},\
+                        {'type': 'drink'}]
+        >>> most_and_least_common_type(treats)
+        ('drink', 'drink')
+
+        case - empty list passed in
+        >>> treats = []
+        >>> most_and_least_common_type(treats)
+        (None, None)
     """
 
     if not treats:
